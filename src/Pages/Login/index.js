@@ -11,7 +11,7 @@ import io from "socket.io-client";
 class NormalLoginForm extends React.Component {
   state = {
     cluster: 3,
-    host: "47.52.206.176:8008"
+    host: "10.6.71.79:10010"
   };
   setHost = e =>
     this.setState({
@@ -32,10 +32,13 @@ class NormalLoginForm extends React.Component {
         formData.append("is_expire", 1);
         formData.append("timeStamp", timestamp);
         formData.append("signature", signature);
+        console.log(`${g.state.afsHost}/auth/signin`)
         const res = await fetch(`${g.state.afsHost}/auth/signin`, {
           method: "post",
           body: formData
         });
+        console.log(res)
+        console.log(`${g.state.afsHost}/auth/signin`)
         const data = await res.json();
         const isSuccess = data.SuccStatus > 0;
         if (!isSuccess) return;

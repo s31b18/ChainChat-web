@@ -11,8 +11,8 @@ class GlobalState extends Container {
         friendList: [],
         messageList: [],
         ws: null,
-        host: '',
-        afsHost: '',
+        host: '127.0.0.1:10010',
+        afsHost: '39.108.80.53:8079',
     }
 
     login = userInfo => this.setState({
